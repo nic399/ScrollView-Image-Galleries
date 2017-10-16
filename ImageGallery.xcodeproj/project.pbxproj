@@ -13,6 +13,7 @@
 		014587CC1F9539260007D31F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 014587CB1F9539260007D31F /* Assets.xcassets */; };
 		014587CF1F9539260007D31F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 014587CD1F9539260007D31F /* LaunchScreen.storyboard */; };
 		014587D21F9539260007D31F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 014587D11F9539260007D31F /* main.m */; };
+		014587DA1F953E990007D31F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014587D91F953E990007D31F /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		014587CE1F9539260007D31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		014587D01F9539260007D31F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		014587D11F9539260007D31F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		014587D81F953E990007D31F /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		014587D91F953E990007D31F /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				014587C51F9539260007D31F /* ViewController.h */,
 				014587C61F9539260007D31F /* ViewController.m */,
 				014587C81F9539260007D31F /* Main.storyboard */,
+				014587D81F953E990007D31F /* DetailViewController.h */,
+				014587D91F953E990007D31F /* DetailViewController.m */,
 				014587CB1F9539260007D31F /* Assets.xcassets */,
 				014587CD1F9539260007D31F /* LaunchScreen.storyboard */,
 				014587D01F9539260007D31F /* Info.plist */,
@@ -145,6 +150,7 @@
 				014587C71F9539260007D31F /* ViewController.m in Sources */,
 				014587D21F9539260007D31F /* main.m in Sources */,
 				014587C41F9539260007D31F /* AppDelegate.m in Sources */,
+				014587DA1F953E990007D31F /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
