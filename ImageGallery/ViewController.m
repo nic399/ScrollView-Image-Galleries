@@ -12,13 +12,9 @@
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (nonatomic) UIImageView *imageView1;
-@property (nonatomic) UIImageView *imageView2;
-@property (nonatomic) UIImageView *imageView3;
 @property (nonatomic) UIPageControl *pageControl;
 @property (nonatomic) NSArray <NSString *> *imageNamesArr;
 @property (nonatomic) NSArray <UIImageView *> *imageViewsArr;
-
 
 @end
 
@@ -29,42 +25,7 @@
     [self createImageViews];
     [self constrainImageViews];
     [self addTapGestureRecognizers];
-
-    
-    
-    
-    
-    
-//    [self setUpImages];
-//    [self constrainImages];
-//    [self setUpImageviewTouchRecognizers];
     [self createPageControl];
-}
-
--(void)setUpImages {
-    UIImageView *imageView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lighthouse0"]];
-    imageView1.translatesAutoresizingMaskIntoConstraints = false;
-    imageView1.contentMode = UIViewContentModeScaleAspectFit;
-    imageView1.clipsToBounds = true;
-    imageView1.userInteractionEnabled = true;
-    [self.scrollView addSubview:imageView1];
-    self.imageView1 = imageView1;
-    
-    UIImageView *imageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lighthouse1"]];
-    imageView2.translatesAutoresizingMaskIntoConstraints = false;
-    imageView2.contentMode = UIViewContentModeScaleAspectFit;
-    imageView2.clipsToBounds = true;
-    imageView2.userInteractionEnabled = true;
-    [self.scrollView addSubview:imageView2];
-    self.imageView2 = imageView2;
-    
-    UIImageView *imageView3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lighthouse2"]];
-    imageView3.translatesAutoresizingMaskIntoConstraints = false;
-    imageView3.contentMode = UIViewContentModeScaleAspectFit;
-    imageView3.clipsToBounds = true;
-    imageView3. userInteractionEnabled = true;
-    [self.scrollView addSubview:imageView3];
-    self.imageView3 = imageView3;
 }
 
 -(void)createImageViews {
@@ -87,41 +48,6 @@
     self.imageViewsArr = [imageViewsArr copy];
 }
 
--(void)constrainImages {
-    [self.imageView1.heightAnchor constraintEqualToAnchor:self.view.heightAnchor].active = true;
-    [self.imageView1.widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = true;
-    
-    [self.imageView1.topAnchor constraintEqualToAnchor:self.scrollView.topAnchor].active = true;
-    [self.imageView1.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor].active = true;
-    
-    [self.imageView1.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor].active = true;
-    //[self.imageView1.trailingAnchor constraintEqualToAnchor:self.imageView2.leadingAnchor].active = true;
-    
-    
-    
-    [self.imageView2.heightAnchor constraintEqualToAnchor:self.view.heightAnchor].active = true;
-    [self.imageView2.widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = true;
-    
-    [self.imageView2.topAnchor constraintEqualToAnchor:self.scrollView.topAnchor].active = true;
-    [self.imageView2.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor].active = true;
-    
-    [self.imageView2.leadingAnchor constraintEqualToAnchor:self.imageView1.trailingAnchor].active = true;
-
-    
-    
-    [self.imageView3.heightAnchor constraintEqualToAnchor:self.view.heightAnchor].active = true;
-    [self.imageView3.widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = true;
-    
-    [self.imageView3.topAnchor constraintEqualToAnchor:self.scrollView.topAnchor].active = true;
-    [self.imageView3.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor].active = true;
-    
-    [self.imageView3.leadingAnchor constraintEqualToAnchor:self.imageView2.trailingAnchor].active = true;
-    
-    
-    
-    [self.imageView3.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor].active = true;
-}
-
 -(void)constrainImageViews {
     [self.imageViewsArr[0].heightAnchor constraintEqualToAnchor:self.view.heightAnchor].active = true;
     [self.imageViewsArr[0].widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = true;
@@ -140,13 +66,11 @@
     [[self.imageViewsArr lastObject].trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor].active = true;
 }
 
--(void)setUpImageviewTouchRecognizers {
-    UITapGestureRecognizer *img1Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageDetail:)];
-    [self.imageView1 addGestureRecognizer:img1Tap];
-    UITapGestureRecognizer *img2Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageDetail:)];
-    [self.imageView2 addGestureRecognizer:img2Tap];
-    UITapGestureRecognizer *img3Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageDetail:)];
-    [self.imageView3 addGestureRecognizer:img3Tap];
+-(void)addTapGestureRecognizers {
+    for (int i = 0; i < [self.imageViewsArr count]; i++) {
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageDetail:)];
+        [self.imageViewsArr[i] addGestureRecognizer:tapGesture];
+    }
 }
 
 -(void)imageDetail: (UITapGestureRecognizer *)sender {
@@ -187,21 +111,5 @@
 - (void)pageTapped:(UIPageControl *)sender {
     
 }
-
-
-
-
--(void)addTapGestureRecognizers {
-    for (int i = 0; i < [self.imageViewsArr count]; i++) {
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageDetail:)];
-        [self.imageViewsArr[i] addGestureRecognizer:tapGesture];
-    }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
